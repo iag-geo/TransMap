@@ -7,16 +7,16 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../jqplot/jquery.jqplot.min.css" />
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/raphael.min.js"></script>
-    <script type="text/javascript" src="../js/kartograph.min.js"></script>
-    <script src="../js/jquery.qtip.min.js"></script>
-    <script type="text/javascript" src="../jqplot/jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="../jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-    <script type="text/javascript" src="../jqplot/plugins/jqplot.barRenderer.min.js"></script>
-    <script type="text/javascript" src="../jqplot/plugins/jqplot.pointLabels.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.csv.js"></script>
+    <link rel="stylesheet" type="text/css" href="./jqplot/jquery.jqplot.min.css" />
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/raphael.min.js"></script>
+    <script type="text/javascript" src="./js/kartograph.min.js"></script>
+    <script src="./js/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="./jqplot/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="./jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="./jqplot/plugins/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="./jqplot/plugins/jqplot.pointLabels.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.csv.js"></script>
 </head>
 <body>
     <div class="content">
@@ -49,7 +49,7 @@
             var startpt_text;
             var startpt_text_region;
             var paths = [];
-            var chart;
+            // var chart;
             var zoom = 1;
             var start_radius = 8;
             var chartshown = false;
@@ -60,7 +60,7 @@
                 "home"       : "At Home",
                 "motor"      : "Motor Vehicle",
                 "other"      : "Other"
-            }
+            };
             var store_data;
             var store_path;
             var store_current;
@@ -131,7 +131,6 @@
                         text.node.setAttribute("class","end_percentage");
                         var region_name = paper.text(to_x, (parseInt(to_y) + radius + 10), regions[destination[0]]);
                         region_name.node.setAttribute("class","name");
-
 
                         // endpoint.toBack();
                         path.toFront();
@@ -262,12 +261,10 @@
                     gotopoint(store_path,store_data,destinations[i]);
                 }
 
-
                 /* render chart */
 
                 $("#chartdiv").show();
 
-                
                 $.jqplot.config.enablePlugins = true;
 
                 var row = getrow(data_gma, parseInt(store_data.id));
@@ -467,7 +464,7 @@
                 ,[new $K.LonLat(150.8693637, -33.86210994), 12702]
                 ,[new $K.LonLat(150.9306669, -33.96871296), 12703]
                 ,[new $K.LonLat(151.144056, -34.03587441), 12801]
-                ,[new $K.LonLat(151.0443719, -34.08451295), 12802]]
+                ,[new $K.LonLat(151.0443719, -34.08451295), 12802]];
 
                 $.ajax({
                 url: 'sa3_2011_gma_class.csv',
@@ -569,8 +566,6 @@
 
                     // regions_midpoint[map['pathById'][key]['data']['id']] = {x:avg_x, y:avg_y};
 
-
-
                     // console.log(map);
                     // for (key in map['pathById']) {
                     //     var pathelm = document.getElementById(key);
@@ -593,17 +588,11 @@
                     //     regions_midpoint[map['pathById'][key]['data']['id']] = {x:avg_x, y:avg_y};
                     // }
 
-
-
                     resize();
 
                 }, { padding: -6 });
-
             });
-
-
         </script>
-
     </div>
 </body>
 </html>
